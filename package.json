@@ -1,0 +1,15 @@
+{
+  "name": "chrome-gpu-blinkenlights",
+  "version": "0.0.0",
+  "description": "A thing that monitors the Chrome GPU waterfall and lights up a blink(1) when there's problems. Not useful to anyone but me.",
+  "author": "Brandon Jones <tojiro@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "blinkenlights": "node blinkenlights.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "node-blink1": "^0.3.0",
+    "node-html-parser": "^1.1.17"
+  }
+}
