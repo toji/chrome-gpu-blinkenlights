@@ -25,7 +25,8 @@ let Blink1 = require('node-blink1');
 let HTMLParser = require('node-html-parser');
 
 const PING_URL = 'https://ci.chromium.org/p/chromium/g/chromium.gpu/console';
-const PING_INTERVAL = 5; //min
+const PING_INTERVAL = 3; //min
+const EMERGENCY_THRESHOLD = 1/2;
 
 const MS_PER_MINUTE = 60 * 1000;
 const FADE_TIME = 500; //ms
@@ -119,7 +120,7 @@ Infra Failures: ${exceptions}
         console.log(`Unknown Builder States: ${unknown}`);
       }
 
-      if (successes < total * 0.6) {
+      if (successes < total * EMERGENCY_THRESHOLD) {
         // If 2/3rds of the tree is unsuccessful that, uh... calls for some blinking.
         declareEmergency();
       } else if (failures) {
